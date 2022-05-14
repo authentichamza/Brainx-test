@@ -11,6 +11,6 @@ Steps to begin using my app locally
 
 * Migrate Migations with rails db:migrate
 
-* Start your rails app rails s
+* Start your rails app with rails s
 
 * Review my app
