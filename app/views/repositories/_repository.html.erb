@@ -1,0 +1,32 @@
+<div id="<%= dom_id repository %>">
+  <h1> Repository </h1>
+  <p>
+    <strong>Name:</strong>
+    <%= repository.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= repository.description %>
+  </p>
+
+  <h2>Users</h1>
+
+  <table class='table'>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </tr>
+    <% @repository.users.each do |user| %>
+      <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name%></td>
+        <td><%= user.email %></td>
+      </tr>
+  <% end %>
+  </table>
+
+
+
+</div>

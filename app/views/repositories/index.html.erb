@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+<div>
+  <h1>Repositories</h1>
+  <%= link_to('Users', users_path) %><br>
+  <%= link_to 'Create Repository', new_repository_path %>
+  <br>
+  <%= search_form_for @q do |f| %>
+  <%= f.search_field :name_or_description_cont, placeholder: 'Search' %>
+  <%= f.submit %>
+  <% end %>
+  <br>
+
+  <table class='table'>
+    <tr>
+      <th>Name</th>
+      <th>Owner</th>
+    </tr>
+    <% @repositories.each do |repo| %>
+    <tr>
+      <td><%= link_to repo.name, repository_path(repo) %></td>
+      <td><%= repo.users.map { |user| "#{user.first_name} #{user.last_name}" }.join(', ') %></td>
+      <td><%= button_to 'Edit', edit_repository_path(repo), method: :get  %><%= button_to 'Destroy', repo, method: :delete %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
